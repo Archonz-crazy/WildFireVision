@@ -20,9 +20,7 @@ import argparse
 import hashlib
 import random
 import shutil
-
 from pathlib import Path
-
 
 FIRE_SUBCATEGORIES = ["Both_smoke_and_fire", "Smoke_from_fires"]
 NOFIRE_SUBCATEGORIES = [
