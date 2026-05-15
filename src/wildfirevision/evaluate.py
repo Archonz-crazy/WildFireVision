@@ -80,6 +80,7 @@ def evaluate_model(
         {output_dir}/classification_report.json
     """
     import tensorflow as tf
+
     from wildfirevision.data import get_data_generators
 
     if class_names is None:

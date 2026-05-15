@@ -44,7 +44,7 @@ def train(config_path: str = "configs/train_config.yaml") -> dict:
     - MLflow tracks every hyperparameter and per-epoch metric
     """
     from wildfirevision.data import get_data_generators
-    from wildfirevision.model import build_vgg16_model, build_resnet50_model
+    from wildfirevision.model import build_resnet50_model, build_vgg16_model
 
     config = _load_config(config_path)
     data_config_path = os.path.join(os.path.dirname(config_path), "data_config.yaml")

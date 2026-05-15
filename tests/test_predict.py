@@ -1,7 +1,6 @@
 """Tests for predict.py — no TF model required, runs fast in CI."""
 
 import numpy as np
-import pytest
 from PIL import Image
 
 

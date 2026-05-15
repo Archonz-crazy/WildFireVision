@@ -2,6 +2,7 @@
 About page — project overview, architecture, tech stack, and team.
 """
 
+import pandas as pd
 import streamlit as st
 
 st.title("ℹ️ About WildFireVision")
@@ -41,8 +42,6 @@ st.markdown(
 
 st.markdown("---")
 st.subheader("Tech Stack")
-
-import pandas as pd
 
 st.table(
     pd.DataFrame(

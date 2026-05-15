@@ -5,9 +5,8 @@ from __future__ import annotations
 import os
 from typing import Any
 
-import numpy as np
-from tensorflow.keras.applications.vgg16 import preprocess_input as vgg16_preprocess
 from tensorflow.keras.applications.resnet import preprocess_input as resnet_preprocess
+from tensorflow.keras.applications.vgg16 import preprocess_input as vgg16_preprocess
 from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 

@@ -44,9 +44,11 @@ packages = ["src/wildfirevision"]
 
 [tool.ruff]
 line-length = 100
+src = ["src"]
+
+[tool.ruff.lint]
 select = ["E", "F", "W", "I"]
 ignore = ["E501"]
-src = ["src"]
 
 [tool.black]
 line-length = 100
