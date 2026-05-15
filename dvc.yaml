@@ -1,0 +1,59 @@
+stages:
+  download_data:
+    cmd: python scripts/download_data.py --dest data/raw
+    deps:
+      - scripts/download_data.py
+    outs:
+      - data/raw:
+          cache: true
+
+  prepare_data:
+    cmd: python scripts/prepare_data.py --raw data/raw --out data/processed/Classification
+    deps:
+      - scripts/prepare_data.py
+      - data/raw
+    outs:
+      - data/processed/Classification:
+          cache: true
+
+  train:
+    cmd: python -m wildfirevision.train --config configs/train_config.yaml
+    deps:
+      - src/wildfirevision/train.py
+      - src/wildfirevision/model.py
+      - src/wildfirevision/data.py
+      - data/processed/Classification
+      - configs/train_config.yaml
+      - configs/data_config.yaml
+    params:
+      - params.yaml:
+          - train.epochs
+          - train.batch_size
+          - train.learning_rate
+          - train.architecture
+    outs:
+      - models/model.h5:
+          cache: false
+      - models/history.json:
+          cache: false
+    metrics:
+      - models/metrics.json:
+          cache: false
+
+  evaluate:
+    cmd: >
+      python -m wildfirevision.evaluate
+      --model models/model.h5
+      --data-dir data/processed/Classification
+      --output-dir models/eval
+    deps:
+      - src/wildfirevision/evaluate.py
+      - models/model.h5
+      - data/processed/Classification
+    outs:
+      - models/eval/confusion_matrix.png:
+          cache: false
+      - models/eval/training_curves.png:
+          cache: false
+      - models/eval/classification_report.json:
+          cache: false

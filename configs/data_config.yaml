@@ -1,0 +1,11 @@
+data_dir: ./data/processed/Classification
+classes:
+  - fire
+  - nofire
+class_indices:
+  fire: 0
+  nofire: 1
+splits:
+  train: train
+  val: val
+  test: test

@@ -1,0 +1,31 @@
+model:
+  architecture: vgg16
+  input_shape: [224, 224, 3]
+  num_classes: 2
+  freeze_base: true
+
+training:
+  epochs: 20
+  batch_size: 16
+  optimizer: adam
+  learning_rate: 0.001
+  early_stopping_patience: 5
+  model_save_path: models/model.h5
+  history_save_path: models/history.json
+
+augmentation:
+  rotation_range: 10
+  width_shift_range: 0.3
+  height_shift_range: 0.3
+  shear_range: 0.2
+  zoom_range: 0.1
+  horizontal_flip: true
+  vertical_flip: true
+
+mlflow:
+  experiment_name: wildfirevision
+  tracking_uri: ./mlruns
+
+huggingface:
+  repo_id: Archonz-crazy/wildfirevision
+  model_filename: model.h5

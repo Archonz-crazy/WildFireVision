@@ -1,0 +1,6 @@
+train:
+  epochs: 20
+  batch_size: 16
+  learning_rate: 0.001
+  architecture: vgg16
+  freeze_base: true

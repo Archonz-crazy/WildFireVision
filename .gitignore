@@ -1,8 +1,44 @@
-≈
+# macOS
 .DS_Store
+CLAUDE.md
 
-/data
-/Classification
+# Data (large, DVC-tracked)
+/data/
+/Classification/
+/Wildfire dataset/
+
+# Model weights (HF Hub or local)
+models/*.h5
+models/*.keras
+models/eval/
+!models/.gitkeep
+
+# MLflow artifacts
+/mlruns/
+
+# DVC internal cache
+/.dvc/cache/
+/.dvc/tmp/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Legacy
 /code/model.h5
-/Wildfire dataset
 code/finalmodel/model.h5
